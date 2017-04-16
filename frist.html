@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+事件冒泡：当一个事件被最底层的标签接收到的时候 它会像水里的泡泡一样  从下往上冒 从里往外冒
+事件捕获：是由netscape提出来的 从最上层的节点开始接收 然后再往下
+DOM事件流：事件捕获  目标事件  事件冒泡
+<div id="odiv">
+    <p id="op">
+        <span id="ospan">
+            事件冒泡点击
+        </span>
+    </p>
+</div>
+<script src="../../封装函数库.js"></script>
+<script>
+    var div=$("#odiv");
+    var p=$("#op");
+    var span=$("#ospan");
+    var body=document.body;
+    div.onclick=function () {
+        alert("div");
+    };
+    p.onclick=function () {
+        alert("p");
+    };
+    span.onclick=function () {
+        alert("span");
+    };
+    body.onclick=function () {
+        alert("body");
+    };
+    document.onclick=function () {
+        alert("document");
+    };
+    window.onclick=function () {
+        alert("window");
+    };
+
+</script>
+
+</body>
+</html>
